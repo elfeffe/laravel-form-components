@@ -1,10 +1,10 @@
 <div wire:ignore
      {{ $extraAttributes }}
-     x-data="{ pond: null, @if ($shouldWatch($attributes)) value: @entangle($attributes->wire('model')), oldValue: undefined @endif }"
+     x-data="{ sentId: null, id: null, pond: null, @if ($shouldWatch($attributes)) value: @entangle($attributes->wire('model')), oldValue: undefined @endif }"
      x-cloak
      x-on:file-pond-clear.window="
-         const id = $wire && $wire.__instance.id;
-         const sentId = $event.detail.id;
+         id = $wire && $wire.__instance.id;
+         sentId = $event.detail.id;
          if (id && (sentId !== id)) {
             return;
          }
